@@ -1,13 +1,10 @@
 #!/usr/bin/python3
 num = ""
-for i in range(0, 80):
-    if i < 10:
-        num += "0{}".format(i)
-    else:
-        num += "{}".format(i)
+for i in range(0, 10):
+    for j in range(i + 1, 10):
+        if i != 8 or j != 9:
+            num += "{}{}, ".format(i, j)
+        else:
+            num += "{}{}".format(i, j)
 
-    if i < 79:
-        num += ", "
-    else:
-        num += ", 89"
 print(num)
