@@ -1,4 +1,2 @@
 #!/bin/bash
-python3 -m py_compile $PYFILE
-filename_no_ext="${PYFILE%.*}"
-output_file="${filename_no_ext}.pyc"
+python3 -c "import py_compile; py_compile.compile('$PYFILE', '$PYFILE' + 'c')"
