@@ -1,3 +1,4 @@
 #!/bin/bash
 python3 -m py_compile $PYFILE
-output_file=${filename_no_ext}.pyc
+filename_no_ext="${PYFILE%.*}"
+output_file="${filename_no_ext}.pyc"
