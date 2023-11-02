@@ -6,28 +6,27 @@ if __name__ == "__main__":
     import sys
 
     x = len(sys.argv) - 1
+    if x < 3:
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        exit(1)
+
     a = int(sys.argv[1])
     b = int(sys.argv[x])
     operator = sys.argv[x - 1]
     operators = {"+", "*", "-", "/"}
 
-    if x < 3:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
+    if operator in operators:
+        if operator == '+':
+            print(f"{a} {operator} {b} = {add(a, b)}")
 
+        elif operator == '*':
+            print(f"{a} {operator} {b} = {mul(a, b)}")
+
+        elif operator == '-':
+            print(f"{a} {operator} {b} = {sub(a, b)}")
+
+        elif operator == '/':
+            print(f"{a} {operator} {b} = {div(a, b)}")
     else:
-        if operator in operators:
-            if operator == '+':
-                print(add(a, b))
-
-            elif operator == '*':
-                print(mul(a, b))
-
-            elif operator == '-':
-                print(sub(a, b))
-
-            elif operator == '/':
-                print(div(a, b))
-        else:
-            print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
