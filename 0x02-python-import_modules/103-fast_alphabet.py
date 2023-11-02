@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-def print_alphabet(letter):
-    print(letter, end="")
-    if letter < 'Z':
-       print_alphabet(chr(ord(letter) + 1))
+import sys
 
-print_alphabet('A')
-print()
+sys.stdout.write(''.join([*map(chr, range(65, 91))]) + '\n')
