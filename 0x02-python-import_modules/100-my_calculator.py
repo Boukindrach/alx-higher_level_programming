@@ -13,6 +13,7 @@ operators = {"+", "*", "-", "/"}
 
 if x < 3:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+    exit(1)
 
 else:
     if operator in operators:
@@ -29,3 +30,4 @@ else:
             print(div(a, b))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
