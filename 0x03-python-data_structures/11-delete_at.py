@@ -3,6 +3,6 @@ def delete_at(my_list=[], idx=0):
     x = len(my_list)
     if x < 0 and x < idx:
         return my_list
-    else: 
+    else:
         del my_list[idx]
-    return my_list
+        return my_list
