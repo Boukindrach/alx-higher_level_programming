@@ -9,13 +9,13 @@ def roman_to_int(roman_string):
     p = 0
 
     for a in range(y):
-        if x[a] not in list(roman_num):
+        if x[a] not in list(roman_n):
             return 0
-        if (a != y - 1) and roman_num.get(x[a]) >= roman_num.get(x[a + 1]):
-            p += roman_num.get(x[a])
+        if (a != y - 1) and roman_n.get(x[a]) >= roman_n.get(x[a + 1]):
+            p += roman_n.get(x[a])
         elif a == y - 1:
-            p += roman_num.get(x[a])
+            p += roman_n.get(x[a])
         else:
-            p -= roman_num.get(x[a])
+            p -= roman_n.get(x[a])
 
     return p
