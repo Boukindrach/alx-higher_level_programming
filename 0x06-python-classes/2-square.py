@@ -5,7 +5,7 @@
 class Square:
     """A square."""
 
-    def __init__(self, size = 0):
+    def __init__(self, size=0):
         """Initialize a new Square with the specified size.
         Args:
             size (int): The size of the new square.
