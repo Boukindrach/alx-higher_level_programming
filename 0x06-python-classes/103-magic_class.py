@@ -11,7 +11,7 @@ class MagicClass:
         """Initialize a MagicClass with the specified radius.
 
         Args:
-            radius (float or int): The radius of the new MagicClass. Default is 0.
+            radius (float or int): The radius of the new MagicClass.
         """
         self._radius = 0
 
