@@ -1,11 +1,13 @@
 #!/usr/bin/python3
+#!/usr/bin/python3
 import sys
-count = len(sys.argv) - 1
-if count == 0:
-    print("0 arguments.")
-elif count == 1:
-    print("1 argument:")
-else:
-    print("{} arguments:".format(count))
-for i in range(count):
-    print("{}: {}".format(i + 1, sys.argv[i + 1]))
+num_of_args = len(sys.argv) - 1
+if num_of_args == 0:
+    print(f"{num_of_args} arguments.")
+elif num_of_args == 1:
+    print(f"{num_of_args} argument:")
+    print(f"1: {sys.argv[1]}")
+elif num_of_args >= 1:
+    print(f"{num_of_args} arguments:")
+    for i in range(1, num_of_args + 1):
+        print(f"{i}: {sys.argv[i]}")
