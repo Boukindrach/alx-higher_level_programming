@@ -1,9 +1,10 @@
 #!/usr/bin/python3
+"""Define a MagicClass that precisely corresponds to a specific bytecode"""
 import math
 
 
 class MagicClass:
-
+    """Represent a circle."""
     def __init__(self, radius=0):
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
