@@ -1,0 +1,41 @@
+=======================
+2-matrix_divided.py
+=======================
+
+Defines a matrix division function.
+
+This module provides a function to divide all elements of a matrix by a given divisor.
+
+Usage
+-----
+
+The `matrix_divided` function divides all elements of a matrix by the given divisor.
+
+    matrix_divided(matrix, div)
+
+Parameters
+----------
+
+- `matrix` (list): A list of lists of integers or floats representing the matrix.
+- `div` (int/float): The divisor to divide the matrix elements by.
+
+Raises
+------
+
+- TypeError: If the matrix is not a list of lists of integers or floats, or if the divisor is not a number.
+- ZeroDivisionError: If the divisor is zero.
+
+Returns
+-------
+
+- list: A new matrix representing the result of the division.
+
+Examples
+--------
+
+```python
+>>> matrix_divided([[1, 2], [3, 4]], 2)
+[[0.5, 1.0], [1.5, 2.0]]
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
