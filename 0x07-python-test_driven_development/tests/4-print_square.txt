@@ -1,0 +1,42 @@
+==============================
+Documentation for print_square
+==============================
+
+Defines a square-printing function.
+
+Usage
+-----
+
+This function prints a square using the '#' character.
+
+    print_square(size)
+
+Parameters
+----------
+
+- `size` (int): The height/width of the square.
+
+Raises
+------
+
+- TypeError: If `size` is not an integer.
+- ValueError: If `size` is less than 0.
+
+Examples
+--------
+
+```python
+>>> print_square(5)
+#####
+#####
+#####
+#####
+#####
+
+>>> print_square(3)
+###
+###
+###
+
+>>> print_square(0)
+
