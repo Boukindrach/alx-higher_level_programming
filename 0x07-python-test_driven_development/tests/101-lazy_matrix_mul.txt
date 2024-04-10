@@ -1,0 +1,35 @@
+===========================================
+Documentation for lazy_matrix_mul Function
+===========================================
+
+Defines a matrix multiplication function using NumPy.
+
+Usage
+-----
+
+This function performs matrix multiplication using NumPy. Matrix multiplication
+is a fundamental operation in linear algebra used to combine the elements of two
+matrices to produce a third matrix.
+
+    lazy_matrix_mul(m_a, m_b)
+
+Parameters
+----------
+
+- `m_a` (list of lists of ints/floats): The first matrix to be multiplied.
+- `m_b` (list of lists of ints/floats): The second matrix to be multiplied.
+
+Returns
+-------
+
+- ndarray: The resulting matrix obtained by multiplying `m_a` and `m_b`.
+
+Example
+-------
+
+Consider the following input matrices:
+
+```python
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[5, 6], [7, 8]]
+
