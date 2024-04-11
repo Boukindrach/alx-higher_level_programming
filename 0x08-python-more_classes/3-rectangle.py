@@ -18,7 +18,7 @@ class Rectangle:
 	@property
 	def width(self):
 		"""Get or set the width of the Rectangle."""
-		return self.__width
+		return (self.__width)
 
 	@width.setter
 	def width(self, value):
@@ -29,7 +29,7 @@ class Rectangle:
 	@property
 	def height(self):
 		"""Get or set the height of the Rectangle."""
-		return self.__height
+		return (self.__height)
 
 	@height.setter
 	def height(self, value):
@@ -59,11 +59,11 @@ class Rectangle:
 		Represents the rectangle with the # character.
 		"""
 		if self.__width == 0 or self.__height == 0:
-			return ""
+			return ("")
 
 		r = []
 		for i in range(self.__height):
 			r.extend(['#' for j in range(self.__width)])
 			if i != self.__height - 1:
 				r.append("\n")
-		return "".join(r)	
+		return ("".join(r))
