@@ -68,3 +68,12 @@ class Rectangle:
 			if i != self.__height - 1:
 				r.append("\n")
 		return ("".join(r))
+
+	def __repr__(self):
+		"""Return the string representation of the Rectangle."""
+		return "Rectangle({}, {})".format(self.__width, self.__height)
+
+	def __del__(self):
+		"""Print a message for every deletion of a Rectangle."""
+		print("Bye rectangle...")
+
