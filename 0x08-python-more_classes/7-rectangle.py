@@ -6,6 +6,7 @@
 class Rectangle:
 	"""Represent a rectangle."""
 	
+	print_symbol = "#"
 	number_of_instances = 0
 
 	def __init__(self, width=0, height=0):
@@ -68,7 +69,7 @@ class Rectangle:
 
 		r = []
 		for i in range(self.__height):
-			r.extend(['#' for j in range(self.__width)])
+			[r.extend(str(self.print_symbol)) for j in range(self.__width)]
 			if i != self.__height - 1:
 				r.append("\n")
 		return ("".join(r))
@@ -80,4 +81,4 @@ class Rectangle:
 	def __del__(self):
 		"""Print a message for every deletion of a Rectangle."""
 		type(self).number_of_instances -= 1
-		print("Bye rectangle...")	
+		print("Bye rectangle...")
