@@ -1,0 +1,34 @@
+==============================
+Documentation for say_my_name
+==============================
+
+Defines a name-printing function.
+
+Usage
+-----
+
+This function prints a formatted name using the provided first name and optional last name.
+
+    say_my_name(first_name, last_name="")
+
+Parameters
+----------
+
+- `first_name` (str): The first name to print.
+- `last_name` (str, optional): The last name to print. Defaults to "".
+
+Raises
+------
+
+- TypeError: If either `first_name` or `last_name` are not strings.
+
+Examples
+--------
+
+```python
+>>> say_my_name("John", "Doe")
+My name is John Doe
+
+>>> say_my_name("Alice")
+My name is Alice
+

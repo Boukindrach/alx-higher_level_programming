@@ -1,0 +1,31 @@
+================================
+Documentation for text_indentation
+================================
+
+Defines a text-indentation function.
+
+Usage
+-----
+
+This function prints text with two new lines after each '.', '?', and ':' characters.
+
+    text_indentation(text)
+
+Parameters
+----------
+
+- `text` (str): The text to print.
+
+Raises
+------
+
+- TypeError: If `text` is not a string.
+
+Examples
+--------
+
+```python
+>>> text_indentation("Hello. How are you? I'm fine, thank you.")
+Hello.
+How are you?
+I'm fine, thank you.
