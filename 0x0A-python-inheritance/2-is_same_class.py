@@ -5,8 +5,7 @@
 
 def is_same_class(obj, a_class):
 
-    """
-    Verify if an object is an instance of a specific class.
+    """Verify if an object is an instance of a specific class.
 
     Args:
         obj (any): The object to check.
