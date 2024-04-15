@@ -4,5 +4,5 @@
 
 
 class BaseGeometry:
-	"""Base class for geometric shapes."""
-	pass
+    """Base class for geometric shapes."""
+    pass
