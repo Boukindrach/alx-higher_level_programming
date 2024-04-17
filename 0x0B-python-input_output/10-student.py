@@ -21,9 +21,6 @@ class Student:
     def to_json(self, attrs=None):
         """Convert the Student instance to a dictionary.
 
-        If attrs is provided as a list of strings, include only the
-        attributes listed in attrs.
-
         Args:
             attrs (list, optional): List of attributes to include in the dictionary.
         
