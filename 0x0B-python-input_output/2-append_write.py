@@ -4,8 +4,7 @@
 
 
 def append_write(filename="", text=""):
-    """Append the provided text to the end of a UTF-8
-		encoded text file.
+    """Append provided text to a UTF-8 encoded text file.
 
     Args:
         filename (str): The name of the file to append to.
