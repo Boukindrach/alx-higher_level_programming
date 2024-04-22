@@ -7,77 +7,63 @@ from models.rectangle import Rectangle
 import os
 
 
-class TestBase(unittest.TestCase):
+#!/usr/bin/python3
 
-    def test_init_with_id(self):
-        obj = Base(id=5)
-        self.assertEqual(obj.id, 5)
+"""Defines unittests for base.py."""
+import unittest
+from models.rectangle import Rectangle
+from models.square import Square
 
-    def test_init_without_id(self):
-        obj1 = Base()
-        obj2 = Base()
-        self.assertEqual(obj1.id, 1)
-        self.assertEqual(obj2.id, 2)
+class TestBase_create(unittest.TestCase):
+    """Unittests for testing create method of Base class."""
 
-    def test_nb_objects_counter(self):
-        Base._Base__nb_objects = 0
-        obj1 = Base()
-        obj2 = Base()
-        obj3 = Base()
-        self.assertEqual(Base._Base__nb_objects, 3)
+    def test_create_rectangle_original(self):
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r1))
 
-class Test_JsonString_Function_Rectangle(unittest.TestCase):
+    def test_create_rectangle_new(self):
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r2))
 
-    def test_to_json_string_with_list(self):
-        list_dicts = [{'id': 1, 'height': 20}, {'id': 2, 'width': 10, 'x': 0, 'y': 6}]
-        expected_json_str = '[{"id": 1, "height": 20}, {"id": 2, "width": 10, "x": 0, "y": 6}]'
-        self.assertEqual(Rectangle.to_json_string(list_dicts), expected_json_str)
+    def test_create_rectangle_is(self):
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertIsNot(r1, r2)
 
-    def test_to_json_string_with_empty_list(self):
-        self.assertEqual(Rectangle.to_json_string([]), "[]")
+    def test_create_rectangle_equals(self):
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
 
-    def test_to_json_string_with_none(self):
-        self.assertEqual(Rectangle.to_json_string(None), "[]")
+    def test_create_square_original(self):
+        s1 = Square(3, 5, 1, 7)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual("[Square] (7) 5/1 - 3", str(s1))
 
-class Test_JsonString_Function_Square(unittest.TestCase):
+    def test_create_square_new(self):
+        s1 = Square(3, 5, 1, 7)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual("[Square] (7) 5/1 - 3", str(s2))
 
-    def test_to_json_string_with_list(self):
-        list_dicts = [{'id': 1, 'size': 15}, {'id': 2, 'size': 20, 'x': 1}]
-        expected_json_str = '[{"id": 1, "size": 15}, {"id": 2, "size": 20, "x": 1}]'
-        self.assertEqual(Square.to_json_string(list_dicts), expected_json_str)
+    def test_create_square_is(self):
+        s1 = Square(3, 5, 1, 7)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertIsNot(s1, s2)
 
-    def test_to_json_string_with_empty_list(self):
-        self.assertEqual(Square.to_json_string([]), "[]")
-
-    def test_to_json_string_with_none(self):
-        self.assertEqual(Square.to_json_string(None), "[]")
-
-class TestSaveToFileFunction(unittest.TestCase):
-
-    class TestClass:
-        def __init__(self, id=None, width=None):
-            self.id = id
-            self.width = width
-
-        def to_dictionary(self):
-            return {'id': self.id, 'width': self.width}
-
-    def test_save_to_file_with_objects(self):
-        obj1 = self.TestClass(id=1, width=10)
-        obj2 = self.TestClass(id=2, width=15)
-        Square.save_to_file([obj1, obj2])
-        
-        with open("TestClass.json", "w") as file:
-            content = file.read()
-            expected_content = '[{"id": 1, "width": 10}]', '[{"id": 2, "width": 15}]'
-            self.assertEqual(content, expected_content)
-
-    def test_save_to_file_with_empty_list(self):
-        Square.save_to_file([])
-        
-        with open("TestClass.json", "w") as file:
-            content = file.read()
-            self.assertEqual(content, "[]")
+    def test_create_square_equals(self):
+        s1 = Square(3, 5, 1, 7)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertNotEqual(s1, s2)
 
 if __name__ == '__main__':
     unittest.main()
