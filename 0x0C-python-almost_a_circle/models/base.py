@@ -3,6 +3,7 @@
 """Defines a base model class."""
 import json
 
+
 class Base:
     """Represents the base model"""
     __nb_objects = 0
