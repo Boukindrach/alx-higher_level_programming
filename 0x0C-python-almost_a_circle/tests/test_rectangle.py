@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import io
+from io import StringIO
 import sys
 import unittest
 from models.base import Base
