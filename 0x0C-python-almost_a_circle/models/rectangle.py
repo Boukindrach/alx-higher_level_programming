@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+"""Rectangle module"""
 from models.base import Base
 
 
 class Rectangle(Base):
+    """Rectangle class"""
     def __init__(self, width, height, x=0, y=0, id=None):
         self.width = width
         self.height = height
@@ -11,10 +13,12 @@ class Rectangle(Base):
         super().__init__(id)
 
     @property
+    """width getter"""
     def width(self):
         return self._width
 
     @width.setter
+    """width setter"""
     def width(self, value):
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -23,10 +27,12 @@ class Rectangle(Base):
         self._width = value
 
     @property
+    """height getter"""
     def height(self):
         return self._height
 
     @height.setter
+    """height getter"""
     def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -35,10 +41,12 @@ class Rectangle(Base):
         self._height = value
 
     @property
+    """x getter"""
     def x(self):
         return self._x
 
     @x.setter
+    """x getter"""
     def x(self, value):
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
@@ -48,10 +56,12 @@ class Rectangle(Base):
         self._x = value
 
     @property
+    """y getter"""
     def y(self):
         return self._y
 
     @y.setter
+    """y getter"""
     def y(self, value):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
@@ -60,9 +70,11 @@ class Rectangle(Base):
         self._y = value
 
     def area(self):
+        """Return area of the rectangle"""
         return self._height * self._width
 
     def display(self):
+        """Prints size of rectangle using #"""
         for y in range(0, self._y):
             print("")
         for height in range(self._height):
@@ -73,6 +85,7 @@ class Rectangle(Base):
             print("")
 
     def update(self, *args, **kwargs):
+        """Update the Rectangle"""
         count = 0
         if args:
             for arg in args:
@@ -101,6 +114,7 @@ class Rectangle(Base):
                     self._y = value
 
     def __str__(self):
+        """Return the print() and str() representation of the Rectangle"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id,
                 self._x,
@@ -110,6 +124,7 @@ class Rectangle(Base):
                 )
 
     def to_dictionary(self):
+        """Return the dictionary representation of a Rectangle."""
         return {
                 'x': self.x,
                 'y': self.y,
