@@ -175,6 +175,20 @@ class TestRectangle_args_kwargs(unittest.TestCase):
         self.assertEqual(rect.x, 2)
         self.assertEqual(rect.y, 3)
 
+class TestRectangle_Str_Method(unittest.TestCase):
+
+    def test_str_representation(self):
+        rectangle = Rectangle(width=10, height=15, x=2, y=3, id=10)
+        expected_str = "[Rectangle] (10) 2/3 - 10/15"
+        self.assertEqual(str(rectangle), expected_str)
+
+class TestSquareToDictionaryMethod(unittest.TestCase):
+
+    def test_to_dictionary(self):
+        rectangle = Rectangle(width = 10 ,height=15, x=2, y=3, id=10)
+        expected_dict = {'x': 2, 'y': 3, 'id': 10, 'height': 15, 'width': 10}
+        self.assertEqual(rectangle.to_dictionary(), expected_dict)
+
 
 if __name__ == '__main__':
     unittest.main()
