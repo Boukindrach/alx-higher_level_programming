@@ -32,12 +32,14 @@ class TestSquare(unittest.TestCase):
     def test_inheritance(self):
         self.assertTrue(issubclass(Square, Rectangle))
 
+
 class TestSquareStrMethod(unittest.TestCase):
 
     def test_str_representation(self):
         square = Square(size=5, x=2, y=3, id=10)
         expected_str = "[Square] (10) 2/3 - 5"
         self.assertEqual(str(square), expected_str)
+
 
 class TestSquare_setter(unittest.TestCase):
 
@@ -69,6 +71,7 @@ class TestSquare_update(unittest.TestCase):
         self.assertEqual(rect.size, 15)
         self.assertEqual(rect.x, 2)
         self.assertEqual(rect.y, 3)
+
 
 class TestSquare_To_DictionaryMethod(unittest.TestCase):
 
