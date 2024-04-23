@@ -45,8 +45,24 @@ class Base:
         """Returns an instance with all attributes already set."""
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
-                t = cls(1, 1)
+                out = cls(1, 1)
         else:
-            t = cls(1)
-        t.update(**dictionary)
-        return t
+            out = cls(1)
+        out.update(**dictionary)
+        return out
+
+    @classmethod
+    def load_from_file(cls):
+
+        filename = "{}.json".format(cls.__name__)
+
+        try:
+            with open (filename, "r") as jsonfile:
+                list_dicts = Base.from_json_string(jsonfile.read())
+                list_instances = []
+                
+                for i in list_dicts:
+                    list_instances.append(cls.create(**i))
+                return list_instances
+        except FileNotFoundError:
+            return []
