@@ -13,19 +13,16 @@ class Square(Rectangle):
         """Initialize a new Square."""
         super().__init__(size, size, x, y, id)
 
-   @property
+    @property
     def size(self):
-        """Get/set the size of the Square."""
         return self.width
 
     @size.setter
     def size(self, value):
-        """Get/set the size of the Square."""
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
-        """Update the Square."""
         if args:
             count = 0
             for arg in args:
