@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# square.py
+
 """Defines a square class."""
 from models.rectangle import Rectangle
 
@@ -24,20 +24,20 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """Update the Square."""
         if args and len(args) != 0:
-            a = 0
+            count = 0
             for arg in args:
-                if a == 0:
+                if count == 0:
                     if arg is None:
                         self.__init__(self.size, self.x, self.y)
                     else:
                         self.id = arg
-                elif a == 1:
+                elif count == 1:
                     self.size = arg
-                elif a == 2:
+                elif count == 2:
                     self.x = arg
-                elif a == 3:
+                elif count == 3:
                     self.y = arg
-                a += 1
+                count += 1
 
         elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
