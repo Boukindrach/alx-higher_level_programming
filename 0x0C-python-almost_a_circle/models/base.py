@@ -35,11 +35,13 @@ class Base:
                 jsonfile.write(Base.to_json_string(list_dicts))
 
     def from_json_string(json_string):
+        """Return the deserialization of a JSON string."""
         if json_string is None or json_string == "[]":
             return []
         return json.loads(json_string)
 
     def create(cls, **dictionary):
+        """Returns an instance with all attributes already set."""
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
                 t = cls(1, 1)
