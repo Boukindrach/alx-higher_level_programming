@@ -108,6 +108,6 @@ class Base:
 
                 for d in list_dicts:
                     list_of_instances.append(cls.create(**d))
-                return list_of_instances 
+                return list_of_instances
         except IOError:
-            return [] 
+            return []
