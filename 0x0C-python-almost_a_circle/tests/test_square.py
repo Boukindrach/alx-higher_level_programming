@@ -1,85 +1,57 @@
-#!/usr/bin/python3
+#!/user/bin/python3
 
-from io import StringIO
-import sys
 import unittest
-from models.base import Base
-from models.rectangle import Rectangle
 from models.square import Square
-
+from models.rectangle import Rectangle
 
 class TestSquare(unittest.TestCase):
-
     def setUp(self):
-        Base._Base__nb_objects = 0
+        self.square1 = Square(5)
+        self.square2 = Square(3, 2, 3, 10)
 
-    def test_default_initialization(self):
-        square = Square(size=5)
-        self.assertEqual(square.id, 1)
-        self.assertEqual(square.width, 5)
-        self.assertEqual(square.height, 5)
-        self.assertEqual(square.x, 0)
-        self.assertEqual(square.y, 0)
+    def test_init(self):
+        self.assertEqual(self.square1.size, 5)
+        self.assertEqual(self.square1.width, 5)
+        self.assertEqual(self.square1.height, 5)
+        self.assertEqual(self.square1.x, 0)
+        self.assertEqual(self.square1.y, 0)
+        self.assertEqual(self.square1.id, 23)
 
-    def test_custom_initialization(self):
-        square = Square(size=5, x=2, y=3, id=10)
-        self.assertEqual(square.width, 5)
-        self.assertEqual(square.height, 5)
-        self.assertEqual(square.x, 2)
-        self.assertEqual(square.y, 3)
-        self.assertEqual(square.id, 10)
-
-    def test_inheritance(self):
-        self.assertTrue(issubclass(Square, Rectangle))
-
-
-class TestSquareStrMethod(unittest.TestCase):
-
-    def test_str_representation(self):
-        square = Square(size=5, x=2, y=3, id=10)
-        expected_str = "[Square] (10) 2/3 - 5"
-        self.assertEqual(str(square), expected_str)
-
-
-class TestSquare_setter(unittest.TestCase):
+        self.assertEqual(self.square2.size, 3)
+        self.assertEqual(self.square2.width, 3)
+        self.assertEqual(self.square2.height, 3)
+        self.assertEqual(self.square2.x, 2)
+        self.assertEqual(self.square2.y, 3)
+        self.assertEqual(self.square2.id, 10)
 
     def test_size_property(self):
-        square = Square(size=5)
-        self.assertEqual(square.size, 5)
+        self.square1.size = 7
+        self.assertEqual(self.square1.size, 7)
+        self.assertEqual(self.square1.width, 7)
+        self.assertEqual(self.square1.height, 7)
 
-    def test_set_size(self):
-        square = Square(size=5)
-        square.size = 10
-        self.assertEqual(square.width, 10)
-        self.assertEqual(square.height, 10)
+    def test_update(self):
+        self.square1.update(2, 10, 1, 1)
+        self.assertEqual(self.square1.id, 2)
+        self.assertEqual(self.square1.size, 10)
+        self.assertEqual(self.square1.x, 1)
+        self.assertEqual(self.square1.y, 1)
 
-
-class TestSquare_update(unittest.TestCase):
-
-    def test_update_with_args(self):
-        rect = Square(size=10)
-        rect.update(5, 15, 2, 3)
-        self.assertEqual(rect.size, 15)
-        self.assertEqual(rect.x, 2)
-        self.assertEqual(rect.y, 3)
-        self.assertEqual(rect.id, 5)
-
-    def test_update_with_kwargs(self):
-        rect = Square(size=10)
-        rect.update(id=5, size=15, x=2, y=3)
-        self.assertEqual(rect.id, 5)
-        self.assertEqual(rect.size, 15)
-        self.assertEqual(rect.x, 2)
-        self.assertEqual(rect.y, 3)
-
-
-class TestSquare_To_DictionaryMethod(unittest.TestCase):
+        self.square2.update(size=4, y=7, id=8)
+        self.assertEqual(self.square2.id, 8)
+        self.assertEqual(self.square2.size, 4)
+        self.assertEqual(self.square2.y, 7)
 
     def test_to_dictionary(self):
-        square = Square(size=5, x=2, y=3, id=10)
-        expected_dict = {'id': 10, 'x': 2, 'size': 5, 'y': 3}
-        self.assertEqual(square.to_dictionary(), expected_dict)
+        dict_square1 = self.square1.to_dictionary()
+        self.assertEqual(dict_square1, {'id': 26, 'size': 5, 'x': 0, 'y': 0})
 
+        dict_square2 = self.square2.to_dictionary()
+        self.assertEqual(dict_square2, {'id': 10, 'size': 3, 'x': 2, 'y': 3})
+
+    def test_str(self):
+        self.assertEqual(str(self.square1), "[Square] (25) 0/0 - 5")
+        self.assertEqual(str(self.square2), "[Square] (10) 2/3 - 3")
 
 if __name__ == '__main__':
     unittest.main()
