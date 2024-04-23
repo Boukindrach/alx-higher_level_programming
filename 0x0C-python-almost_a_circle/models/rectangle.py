@@ -8,7 +8,7 @@ class Rectangle(Base):
     """Rectangle class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize a new Rectangle."""
+        """Initialize a new Rectangle"""
         self.width = width
         self.height = height
         self.x = x
@@ -17,8 +17,8 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        return self._width
-
+        """Set the width of the Rectangle."""
+        return self.__width 
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
