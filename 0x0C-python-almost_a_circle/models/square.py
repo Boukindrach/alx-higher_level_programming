@@ -1,5 +1,3 @@
-#!/usr/usr/python3
-
 #!/usr/bin/python3
 # square.py
 """Defines a square class."""
@@ -15,6 +13,7 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """Get the size of the Square."""
         return self.width
 
     @size.setter
@@ -23,42 +22,47 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        if args:
-            count = 0
+        """Update the Square."""
+        if args and len(args) != 0:
+            a = 0
             for arg in args:
-                if count == 0:
-                    self.id = arg
-                elif count == 1:
+                if a == 0:
+                    if arg is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif a == 1:
                     self.size = arg
-                elif count == 2:
+                elif a == 2:
                     self.x = arg
-                elif count == 3:
-                    self.y = 3
-                count += 1
-        elif kwargs:
+                elif a == 3:
+                    self.y = arg
+                a += 1
+
+        elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
-                    self.id = value
-                if key == "size":
+                    if v is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = value
+                elif key == "size":
                     self.size = value
-                if key == "x":
+                elif key == "x":
                     self.x = value
-                if key == "y":
+                elif key == "y":
                     self.y = value
 
     def to_dictionary(self):
         """Return the dictionary representation of the Square."""
         return {
-                'id': self.id,
-                'x': self.x,
-                'size': self.size,
-                'y': self.y
-                }
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
 
     def __str__(self):
         """Return the print() and str() representation of a Square."""
-        return "[Square] ({}) {}/{} - {}".format(
-                self.id,
-                self.x,
-                self.y,
-                self.size) 	
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
