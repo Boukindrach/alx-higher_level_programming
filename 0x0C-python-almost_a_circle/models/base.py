@@ -57,10 +57,10 @@ class Base:
         filename = "{}.json".format(cls.__name__)
 
         try:
-            with open (filename, "r") as jsonfile:
+            with open(filename, "r") as jsonfile:
                 list_dicts = Base.from_json_string(jsonfile.read())
                 list_instances = []
-                
+
                 for i in list_dicts:
                     list_instances.append(cls.create(**i))
                 return list_instances
