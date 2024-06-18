@@ -1,10 +1,10 @@
 #!/usr/bin/node
 
-function Factorial(number) {
+function Factorial (number) {
   let factorial = 1;
   while (number !== 0) {
-  factorial *= number;
-  number = number - 1;
+    factorial *= number;
+    number = number - 1;
   }
   return factorial;
 }
