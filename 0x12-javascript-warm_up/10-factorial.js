@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-if (process.argv.length === 2) {
+if (isNaN(process.argv[2])) {
   console.log('1');
 } else {
   let factorial = 1;
