@@ -1,12 +1,16 @@
 #!/usr/bin/node
 
-if (isNaN(process.argv[2])) {
-  console.log('1');
-} else {
+function Factorial(number) {
   let factorial = 1;
-  while (process.argv[2] !== 0) {
-    factorial *= process.argv[2];
-    process.argv[2] = process.argv[2] - 1;
+  while (number !== 0) {
+  factorial *= number;
+  number = number - 1;
   }
-  console.log(factorial);
+  return factorial;
+}
+
+if (process.argv.length === 2) {
+  console.log(Factorial(1));
+} else {
+  console.log(Factorial(Number(process.argv[2])));
 }
