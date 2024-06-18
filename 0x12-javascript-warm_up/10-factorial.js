@@ -9,7 +9,7 @@ function Factorial (number) {
   return factorial;
 }
 
-if (process.argv.length === 2) {
+if (isNaN(process.argv[2])) {
   console.log(Factorial(1));
 } else {
   console.log(Factorial(Number(process.argv[2])));
