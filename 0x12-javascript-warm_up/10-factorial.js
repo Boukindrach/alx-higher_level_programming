@@ -1,8 +1,7 @@
 #!/usr/bin/node
 
 if (process.argv.length === 2) {
-  const x = 1;
-  console.log(x);
+  console.log('1');
 } else {
   let factorial = 1;
   while (process.argv[2] !== 0) {
