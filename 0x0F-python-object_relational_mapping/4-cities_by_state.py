@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Script takes an argument and sql safe form injection"""
+"""
+Script takes in the name of a state as an argument and lists all cities of that state
+"""
 import MySQLdb
 import sys
 
