@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-"""
-"""
+"""declarative base"""
+
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 
