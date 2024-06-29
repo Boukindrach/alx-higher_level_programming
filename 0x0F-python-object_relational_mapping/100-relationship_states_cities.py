@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script prints all City 
+This script prints all City
 objects from the database
 """
 
