@@ -2,15 +2,21 @@
 
 const request = require('request');
 const apiUrl = process.argv[2];
+const characterId = '18';
+let count = 0;
 
 request.get(apiUrl, (error, response, body) => {
   if (error) {
-    console.error(error);
+    console.log(error);
   } else {
-      const films = JSON.parse(body).results;
-      const wedgeFilms = films.filter(film => 
-        film.characters.includes(`${apiUrl}people/18/`)
-      );
-      console.log(wedgeFilms.length);
+    const data = JSON.parse(body);
+    data.results.forEach((film) => {
+      film.characters.forEach((character) => {
+        if (character.includes(characterId)) {
+          count += 1;
+        }
+      });
+    });
+    console.log(count);
   }
 });
