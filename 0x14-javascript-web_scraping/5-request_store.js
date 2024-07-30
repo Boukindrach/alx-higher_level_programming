@@ -2,10 +2,10 @@
 
 const request = require('request');
 const fs = require('fs');
-const url = process.argv[2];
+const apiUrl = process.argv[2];
 const filePath = process.argv[3];
 
-request.get(url, (error, response, body) => {
+request.get(apiUrl, (error, response, body) => {
   if (error) {
     console.error('Error making request:', error);
   } else {
